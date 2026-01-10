@@ -1,20 +1,20 @@
 {% set name = "checkmake" %}
-{% set version = "0.2.2" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/mrtazz/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 4e5914f1ee3e5f384d605406f30799bf556a06b9785d5b0e555fd88b43daf19c
+  url: https://github.com/mrtazz/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 4c45c5eda4d22b1b603cad7836805927f047ca5e3a88fbefbbf1a636c87495b7
 
 build:
   number: 0
 
 requirements:
   build:
-    - {{ compiler('go-nocgo')}}
+    - {{ compiler('go-nocgo') }}
     - go-licenses
     - make
     - pandoc
