@@ -2,9 +2,5 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
-export BUILDER_NAME="conda-forge"
-export BUILDER_EMAIL="conda@conda-forge.org"
-
-make
-make install
-go-licenses save . --save_path=license-files
+go build -o=${PREFIX}/bin/${PKG_NAME} -ldflags="-s -w -X main.version=${PKG_VERSION}" ./cmd/checkmake
+go-licenses save ./cmd/checkmake --save_path=license-files
